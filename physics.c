@@ -4,13 +4,28 @@
 #include <stdbool.h>
 
 #include "loader.h"
-#include <xmmintrin.h> // Required for _mm_rsqrt_ss
 
-// Define it as 'static inline' so the compiler embeds it directly
-// inside physics.c functions without any function call overhead.
+// Includes for optimization of 1/sqrt(x)
+
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+    #include <xmmintrin.h> // for x86
+#elif defined(__ARM_NEON) || defined(__aarch64__)
+    #include <arm_neon.h>  // for aarch
+#else
+    #include <math.h>      // Fallback
+#endif
+
+// Wrapper for cross-platform fast rsqrt
 static inline float fast_rsqrt(float val) {
-    return _mm_cvtss_f32(_mm_rsqrt_ss(_mm_set_ss(val)));
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+    return _mm_cvtss_f32(_mm_rsqrt_ss(_mm_set_ss(val)));    // for x86
+#elif defined(__ARM_NEON) || defined(__aarch64__)
+    return vget_lane_f32(vrsqrte_f32(vdup_n_f32(val)), 0);  // for aarch
+#else
+    return 1.0f / sqrtf(val);								// Fallback
+#endif
 }
+
 
 float posX[MAX_PARTICLES];
 float posY[MAX_PARTICLES];
