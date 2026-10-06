@@ -31,14 +31,14 @@ Ensure you have a C compiler (`gcc` or `clang`); currently only Windows is suppo
 ### Building & Running
 
 1. Clone the repository and navigate to the project directory:
-
+    ```
     git clone https://github.com/itdish0/simple-verlet-raylib.git
     cd simple-verlet-raylib
-
+    ```
 2. Clean, compile, and run the project:
-
+    ```
     make clean && make run
-
+    ```
 ---
 
 ## Tiled Map Workflow
