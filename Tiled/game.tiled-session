@@ -1,0 +1,29 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "start_map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 614.3333333333333,
+                "y": 406.3333333333333
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/IanBo/OneDrive/Documents/____C/Tiled",
+    "last.imagePath": "C:/Users/IanBo/OneDrive/Documents/____C/Tiled",
+    "map.lastUsedExportFilter": "Raw Binary Physics Bytes (*.bin)",
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": "1",
+    "openFiles": [
+    ],
+    "project": "game.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.transparentColor": "#000000",
+    "tileset.useTransparentColor": true
+}
