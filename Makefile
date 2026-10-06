@@ -9,19 +9,19 @@ all: debug
 
 # 1. Debug Target: Keeps console, adds -g flag for gdb/lldb, disables optimizations
 debug: CFLAGS += -g -O0
-debug: game.exe
+debug: verlet.exe
 
 # 2. Release Target: Hides console, enables -O2 optimizations
 release: CFLAGS += -O2
 release: LDFLAGS += -Wl,-subsystem,windows
-release: game.exe
+release: verlet.exe
 
 # Compilation rule
-game.exe: main.c
-	$(CC) $(CFLAGS) $(SRCS) -o game.exe $(LDFLAGS)
+verlet.exe: main.c
+	$(CC) $(CFLAGS) $(SRCS) -o verlet.exe $(LDFLAGS)
 
-run: game.exe
-	./game.exe
+run: verlet.exe
+	./verlet.exe
 
 clean:
-	rm -f game.exe
+	rm -f verlet.exe
